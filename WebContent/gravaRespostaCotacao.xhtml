@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<h1>Nova resposta de cotação</h1>
+	<h:form id="cotacao" >
+		<fieldset>
+			<legend>Dados da cotação</legend>
+			<h:panelGrid columns="2" >
+							
+				<h:outputLabel value="Item" for="descItem" />
+				<h:inputText id="descItem"/>
+
+				<h:outputLabel value="Unidade de medida" for="unidadeMedida" />
+				<h:inputText id="unidadeMedida" />
+
+				<h:outputLabel value="quantidade" for="quantidade" />
+				<h:inputText id="quantidade" />
+
+
+				<h:outputLabel value="Categoria do fornecedor"
+					for="categoriaFornecedor" />
+				<h:inputText id="categoriaFornecedor" />
+
+			</h:panelGrid>
+		</fieldset>
+	</h:form>
+	<h:form>
+		<fieldset>
+			<legend>Dados da resposta</legend>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Valor da cotação" for="valor"/>
+				<h:inputText id="valor" value="#{respostaCotacaoBean.respostaCotacao.valor}"/>
+			
+				<h:outputLabel value="Tipo de frete" for="tipo_Frete"/>
+				<h:inputText id="tipo_Frete" value="#{respostaCotacaoBean.respostaCotacao.tipo_Frete}"/>
+
+				<h:outputLabel value="Valor do frete" for="valor_Frete" />
+				<h:inputText id="valor_Frete" value="#{respostaCotacaoBean.respostaCotacao.valor_Frete}"/>
+
+				<h:outputLabel value="Valor Impostos" for="valor_Impostos" />
+				<h:inputText id="valor_Impostos" value="#{respostaCotacaoBean.respostaCotacao.valor_Impostos}"/>
+
+				<h:outputLabel value="Valor total" for="valor_Total" />
+				<h:inputText id="valor_Total" value="#{respostaCotacaoBean.respostaCotacao.valor_Total}" />
+
+				<h:outputLabel value="Data da Entrega" for="data_Entrega" />
+				<h:inputText id="data_Entrega" />
+
+				<h:outputLabel value="Nome do fornecedor" for="nomeFornecedor" />
+				<h:inputText id="nomeFornecedor" value="#{respostaCotacaoBean.respostaCotacao.nomeFornecedor}"/>
+
+				<h:outputLabel value="Email1" for="email" />
+				<h:inputText id="email" value="#{respostaCotacaoBean.respostaCotacao.email}"/>
+
+				<h:outputLabel value="Email2" for="email2" />
+				<h:inputText id="email2" value="#{respostaCotacaoBean.respostaCotacao.email2}"/>
+
+				<h:outputLabel value="Telefone" for="telefone" />
+				<h:inputText id="telefone" value="#{respostaCotacaoBean.respostaCotacao.telefone}"/>
+
+				<h:commandButton value="Gravar" action="#{respostaCotacaoBean.grava}" />
+			</h:panelGrid>
+		</fieldset>
+	</h:form>
+</h:body>
+</html>

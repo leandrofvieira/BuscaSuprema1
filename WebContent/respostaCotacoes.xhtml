@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<h:form>
+		<fieldset>
+			<legend>Dados da cotação</legend>
+			<h:panelGrid columns="4" cellspacing="10">
+
+				<h:outputLabel value="Item" for="descItem" />
+				<h:inputText id="descItem" value="#{cotacaoBean.cotacao.descItem}" />
+
+				<h:outputLabel value="Unidade de medida" for="unidadeMedida" />
+				<h:inputText id="unidadeMedida"
+					value="#{cotacaoBean.cotacao.unidadeMedida}" />
+
+				<h:outputLabel value="quantidade" for="quantidade" />
+				<h:inputText id="quantidade"
+					value="#{cotacaoBean.cotacao.quantidade}" />
+
+				<h:outputLabel value="data de inicio" for="data_Inicial" />
+				<h:inputText id="data_Inicial" />
+
+				<h:outputLabel value="data de termino" for="data_Final" />
+				<h:inputText id="data_Final" />
+
+
+				<h:outputLabel value="Categoria do fornecedor"
+					for="categoriaFornecedor" />
+				<h:inputText id="categoriaFornecedor"
+					value="#{cotacaoBean.cotacao.categoriaFornecedor}" />
+			</h:panelGrid>
+		</fieldset>
+	</h:form>
+	<h:dataTable id="respostaCotacoes"
+		value="#{respostaCotacaoBean.respostaCotacoes}" var="respostaCotacoes"
+		cellspacing="10">
+		<h:column>
+			<f:facet name="header">Fornecedor</f:facet>
+			<h:outputText value="#{respostaCotacoes.nomeFornecedor}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Data da Resposta</f:facet>
+			<h:outputText value="#{respostaCotacoes.data_Resposta}" />
+		</h:column>tipo_Frete
+
+		<h:column>
+			<f:facet name="header">Valor</f:facet>
+			<h:outputText value="#{respostaCotacoes.valor}">
+				<f:convertNumber type="currency" pattern="R$ #0.00"
+					currencySymbol="R$" locale="pt_BR" />
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Valor do frete</f:facet>
+			<h:outputText value="#{respostaCotacoes.valor_Frete}">
+				<f:convertNumber type="currency" pattern="R$ #0.00"
+					currencySymbol="R$" locale="pt_BR" />
+			</h:outputText>
+		</h:column>
+
+
+		<h:column>
+			<f:facet name="header">Valor dos impostos</f:facet>
+			<h:outputText value="#{respostaCotacoes.valor_Impostos}">
+				<f:convertNumber type="currency" pattern="R$ #0.00"
+					currencySymbol="R$" locale="pt_BR" />
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Valor Total</f:facet>
+			<h:outputText value="#{respostaCotacoes.valor_Total}">
+				<f:convertNumber type="currency" pattern="R$ #0.00"
+					currencySymbol="R$" locale="pt_BR" />
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Data prevista de entrega</f:facet>
+			<h:outputText value="#{respostaCotacoes.data_Entrega}" />
+		</h:column>
+
+	</h:dataTable>
+</h:body>
+
+</html>

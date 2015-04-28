@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+<form>
+	<h1>Consulta de cotações</h1>
+	<h:messages />
+	<h:dataTable id="cotacoes" value="#{cotacaoBean.cotacoes}"
+		var="cotacoes" cellspacing="10">
+		<h:column>
+			<f:facet name="header">Nº da Cotação</f:facet>
+			<h:outputText value="#{cotacoes.id_Cotacao}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Item</f:facet>
+			<h:outputText value="#{cotacoes.descItem}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Quantidade</f:facet>
+			<h:outputText value="#{cotacoes.quantidade}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Unidade de Medida</f:facet>
+			<h:outputText value="#{cotacoes.unidadeMedida}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Data Inicial</f:facet>
+			<h:outputText value="#{cotacoes.data_Inicial.time}">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+			</h:outputText>
+		</h:column>
+
+
+		<h:column>
+			<f:facet name="header">Data Final</f:facet>
+			<h:outputText value="#{cotacoes.data_Final.time}">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Categoria Fornecedor</f:facet>
+			<h:outputText value="#{cotacoes.categoriaFornecedor}" />
+		</h:column>
+
+		<h:column>
+			<h:link value="Grava Resposta" outcome="gravaRespostaCotacao" />
+		</h:column>
+
+		<h:column>
+			<h:link value="Respostas" outcome="respostaCotacoes" />
+		</h:column>
+
+		<h:column>	
+			<h:commandButton value="Requisições" action="#{cotacaoBean.formRespostaCotacoes}" >
+			<h:link value="Grava Resposta" outcome="gravaRespostaCotacao" />
+				<f:setPropertyActionListener  target="#{cotacaoBean.cotacao}" value="#{cotacoes}"/>
+			</h:commandButton>
+		</h:column>
+
+
+	</h:dataTable>
+	</form>
+</h:body>
+
+</html>

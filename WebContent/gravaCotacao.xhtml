@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<h1>Nova cotação</h1>
+	<h:messages />
+	<h:form>
+		<fieldset>
+			<legend>Dados da cotação</legend>
+			<h:panelGrid columns="2">
+
+				<h:outputLabel value="Item" for="descItem" />
+				<h:inputText id="descItem" value="#{cotacaoBean.cotacao.descItem}"
+					required="true" requiredMessage="Item em branco" />
+
+				<h:outputLabel value="Unidade de medida" for="unidadeMedida" />
+				<h:inputText id="unidadeMedida"
+					value="#{cotacaoBean.cotacao.unidadeMedida}" required="true" requiredMessage="Unidade de medida em branco"/>
+
+				<h:outputLabel value="quantidade" for="quantidade" />
+				<h:inputText id="quantidade"
+					value="#{cotacaoBean.cotacao.quantidade}" required="true"
+					requiredMessage="Quantidade em branco" />
+
+				<h:outputLabel value="data de inicio" for="data_Inicial" />
+				<h:inputText value="#{cotacaoBean.cotacao.data_Inicial.time}"
+					id="data_Inicial" disabled="true">
+					<f:convertDateTime pattern="dd/MM/yyyy"
+						timeZone="America/Sao_Paulo" />
+				</h:inputText>
+
+
+				<h:outputLabel value="data de termino" for="data_Final" />
+				<h:inputText value="#{cotacaoBean.cotacao.data_Final.time}"
+					id="data_Final" required="true"
+					requiredMessage="Data para o final da cotaçao em branco">
+					<f:convertDateTime pattern="dd/MM/yyyy"
+						timeZone="America/Sao_Paulo" />
+				</h:inputText>
+
+
+				<h:outputLabel value="Categoria do fornecedor"
+					for="categoriaFornecedor" />
+				<h:inputText id="categoriaFornecedor"
+					value="#{cotacaoBean.cotacao.categoriaFornecedor}" />
+
+
+				<h:commandButton value="Gravar" action="#{cotacaoBean.gravar}" />
+			</h:panelGrid>
+		</fieldset>
+	</h:form>
+</h:body>
+</html>
